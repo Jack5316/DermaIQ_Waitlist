@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     const waitlistEntry = await prisma.waitlistEmail.create({
       data: {
         email,
-        ageGroup: ageGroup as any,
+        ageGroup: ageGroup,
       },
     })
     console.log('Successfully created waitlist entry:', waitlistEntry)
