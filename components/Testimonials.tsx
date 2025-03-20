@@ -34,16 +34,16 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white dark:bg-gray-100 transition-all duration-500 opacity-0 translate-y-8">
+    <section ref={sectionRef} className="py-16 bg-pink-50 dark:bg-pink-50 transition-all duration-500 opacity-0 translate-y-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-800">
-            What our users say
+            What experts say
           </h2>
         </div>
         
         <div className="max-w-2xl mx-auto">
-          <div className="bg-gray-50 dark:bg-white rounded-lg p-6 text-center">
+          <div className="bg-white dark:bg-white rounded-lg p-6 text-center shadow-sm">
             <p className="text-gray-700 dark:text-gray-700 text-lg mb-4">
               "{testimonials[0].content}"
             </p>

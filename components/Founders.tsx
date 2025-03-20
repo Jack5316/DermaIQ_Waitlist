@@ -4,7 +4,7 @@ const Founders = () => {
   return (
     <section className="py-16 bg-pink-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-heading">Meet Our Founders ✨</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-heading">Founders </h2>
         <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
           {/* Catherine */}
           <div className="bg-white rounded-lg shadow-md p-6 border border-pink-200 hover:shadow-lg transition-all duration-300">
