@@ -17,13 +17,13 @@ export default function Testimonials() {
               key={testimonial.id}
               className="bg-pink-50 rounded-lg shadow-md p-6 transform transition duration-300 hover:scale-102 border border-pink-100"
             >
-              <div className="flex items-center mb-3">
+              <p className="text-text italic font-medium text-lg mb-4">&ldquo;{testimonial.content}&rdquo;</p>
+              <div className="flex items-center">
                 <div>
-                  <div className="text-lg font-medium text-primary">{testimonial.name}</div>
-                  <div className="text-secondary text-sm">{testimonial.role}</div>
+                  <div className="text-sm font-medium text-primary">{testimonial.name}</div>
+                  <div className="text-secondary text-xs">{testimonial.role}</div>
                 </div>
               </div>
-              <p className="text-text italic font-medium">&ldquo;{testimonial.content}&rdquo;</p>
             </div>
           ))}
         </div>
