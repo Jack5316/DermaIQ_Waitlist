@@ -13,11 +13,6 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-primary">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#features" className="text-green-700 hover:text-secondary">
-                  Features
-                </a>
-              </li>
-              <li>
                 <a href="#about" className="text-green-700 hover:text-secondary">
                   About
                 </a>
