@@ -12,6 +12,7 @@ export default function Home() {
         <Header />
         <div className="container mx-auto px-4 py-12">
           <WaitlistForm />
+          <div className="my-16"></div>
           <Founders />
           <Testimonials />
         </div>
