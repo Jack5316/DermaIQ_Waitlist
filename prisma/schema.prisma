@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WaitlistEmail {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  ageGroup  AgeGroup
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum AgeGroup {
+  UNDER_18
+  AGE_19_30
+  AGE_31_40
+  AGE_41_50
+  AGE_51_60
+  OVER_60
+}

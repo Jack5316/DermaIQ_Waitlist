@@ -2,34 +2,51 @@
 
 import { useState } from 'react'
 
+const AGE_GROUPS = [
+  { value: 'UNDER_18', label: '18 and under' },
+  { value: 'AGE_19_30', label: '19-30' },
+  { value: 'AGE_31_40', label: '31-40' },
+  { value: 'AGE_41_50', label: '41-50' },
+  { value: 'AGE_51_60', label: '51-60' },
+  { value: 'OVER_60', label: '60 and above' },
+]
+
 export default function WaitlistForm() {
   const [email, setEmail] = useState('')
+  const [ageGroup, setAgeGroup] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
+    setMessage('')
 
     try {
-      const response = await fetch('/api/join-waitlist', {
+      console.log('Submitting form with:', { email, ageGroup })
+      const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, ageGroup }),
       })
 
+      const data = await response.json()
+      console.log('Received response:', data)
+
       if (!response.ok) {
-        throw new Error('Failed to join waitlist')
+        throw new Error(data.error || data.details || 'Failed to join waitlist')
       }
 
       setStatus('success')
       setMessage('Thank you for joining our waitlist! We\'ll keep you updated.')
       setEmail('')
-    } catch (error) {
+      setAgeGroup('')
+    } catch (error: any) {
+      console.error('Form submission error:', error)
       setStatus('error')
-      setMessage('Sorry, something went wrong. Please try again later.')
+      setMessage(error.message || 'Sorry, something went wrong. Please try again later.')
     }
   }
 
@@ -51,6 +68,21 @@ export default function WaitlistForm() {
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
           />
+        </div>
+        <div>
+          <select
+            value={ageGroup}
+            onChange={(e) => setAgeGroup(e.target.value)}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            <option value="">Select your age group</option>
+            {AGE_GROUPS.map((group) => (
+              <option key={group.value} value={group.value}>
+                {group.label}
+              </option>
+            ))}
+          </select>
         </div>
         <button
           type="submit"
