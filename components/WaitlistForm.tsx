@@ -36,6 +36,11 @@ export default function WaitlistForm() {
       console.log('Received response:', data)
 
       if (!response.ok) {
+        console.error('API error details:', {
+          status: response.status,
+          statusText: response.statusText,
+          data
+        });
         throw new Error(data.error || data.details || 'Failed to join the party🎉')
       }
 

@@ -8,9 +8,28 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
-export const prisma = globalForPrisma.prisma ?? 
-  new PrismaClient({
-    log: ['query', 'error', 'warn'],
-  })
+// Create a new Prisma client if one doesn't exist
+const prismaBase = globalForPrisma.prisma ?? new PrismaClient({
+  log: ['query', 'error', 'warn'],
+})
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma 
+// Explicitly handle connection in serverless environments
+export const prisma = prismaBase.$extends({
+  query: {
+    async $allOperations({ args, query, operation }: { 
+      args: unknown; 
+      query: (args: unknown) => Promise<unknown>; 
+      operation: string 
+    }) {
+      try {
+        return await query(args)
+      } catch (error: any) {
+        console.error(`Prisma query error in operation ${operation}:`, error)
+        throw error
+      }
+    },
+  },
+})
+
+// Save Prisma client to global object in non-production environments
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prismaBase 
