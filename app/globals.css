@@ -3,17 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 76, 175, 80;
+  --background-start-rgb: 255, 223, 235;
+  --background-end-rgb: 255, 205, 220;
+  --primary-color: #66bb6a;
+  --secondary-color: #9ccc65;
+  --accent-color: #f48fb1;
+  --heading-color: #43a047;
+  --text-color: #388e3c;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--text-color);
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+  }
+  
+  a {
+    color: var(--primary-color);
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: var(--secondary-color);
+  }
 } 

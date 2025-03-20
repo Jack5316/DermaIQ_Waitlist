@@ -51,11 +51,11 @@ export default function WaitlistForm() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto text-center">
-      <h2 className="text-4xl font-bold text-gray-900 mb-4">
-        Join the Party🎉
+    <div className="max-w-2xl mx-auto text-center bg-pink-50 p-8 rounded-lg shadow-md">
+      <h2 className="text-4xl font-bold text-heading mb-4">
+        Join the DermaIQ! ✨
       </h2>
-      <p className="text-lg text-gray-600 mb-8">
+      <p className="text-lg text-text mb-8 font-medium">
         Be the first to experience the future of AI-powered dermatology. Sign up for early access.
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -66,7 +66,7 @@ export default function WaitlistForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
           />
         </div>
         <div>
@@ -74,7 +74,7 @@ export default function WaitlistForm() {
             value={ageGroup}
             onChange={(e) => setAgeGroup(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full px-4 py-2 border border-pink-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary bg-white"
           >
             <option value="">Select your age group</option>
             {AGE_GROUPS.map((group) => (
@@ -87,13 +87,13 @@ export default function WaitlistForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full md:w-auto px-8 py-3 bg-primary text-white rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
+          className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 transition-all duration-300"
         >
-          {status === 'loading' ? 'Joining...' : 'Join the Party🎉'}
+          {status === 'loading' ? 'Joining...' : 'Join the Party 🎀'}
         </button>
       </form>
       {message && (
-        <p className={`mt-4 ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+        <p className={`mt-4 font-medium ${status === 'success' ? 'text-green-600' : 'text-accent'}`}>
           {message}
         </p>
       )}
