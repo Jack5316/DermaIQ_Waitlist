@@ -36,7 +36,7 @@ export default function WaitlistForm() {
       console.log('Received response:', data)
 
       if (!response.ok) {
-        throw new Error(data.error || data.details || 'Failed to join waitlist')
+        throw new Error(data.error || data.details || 'Failed to join the party🎉')
       }
 
       setStatus('success')
@@ -53,7 +53,7 @@ export default function WaitlistForm() {
   return (
     <div className="max-w-2xl mx-auto text-center">
       <h2 className="text-4xl font-bold text-gray-900 mb-4">
-        Join the Waitlist
+        Join the Party🎉
       </h2>
       <p className="text-lg text-gray-600 mb-8">
         Be the first to experience the future of AI-powered dermatology. Sign up for early access.
@@ -89,7 +89,7 @@ export default function WaitlistForm() {
           disabled={status === 'loading'}
           className="w-full md:w-auto px-8 py-3 bg-primary text-white rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
         >
-          {status === 'loading' ? 'Joining...' : 'Join Waitlist'}
+          {status === 'loading' ? 'Joining...' : 'Join the Party🎉'}
         </button>
       </form>
       {message && (

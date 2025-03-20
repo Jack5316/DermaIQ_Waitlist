@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'DermaIQ Waitlist',
-  description: 'Join the waitlist for DermaIQ - Your AI-powered dermatology assistant',
+  description: 'Join the party🎉 for DermaIQ - Your AI-powered dermatology assistant',
 }
 
 export default function RootLayout({

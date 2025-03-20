@@ -32,7 +32,8 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <p className="text-gray-400">
-              Email: info@dermaiq.ai<br />
+              Catherine: <a href="mailto:sejjc91@ucl.ac.uk" className="hover:text-white transition-colors">sejjc91@ucl.ac.uk</a><br />
+              Jack: <a href="mailto:ucabjt7@ucl.ac.uk" className="hover:text-white transition-colors">ucabjt7@ucl.ac.uk</a><br />
               Follow us on social media
             </p>
           </div>
