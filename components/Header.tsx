@@ -9,11 +9,6 @@ export default function Header() {
           <nav>
             <ul className="flex space-x-4">
               <li>
-                <a href="#features" className="text-primary hover:text-secondary font-medium">
-                  Features
-                </a>
-              </li>
-              <li>
                 <a href="#about" className="text-primary hover:text-secondary font-medium">
                   About
                 </a>

@@ -55,8 +55,11 @@ export default function WaitlistForm() {
       <h2 className="text-4xl font-bold text-heading mb-4">
         Join the DermaIQ! ✨
       </h2>
-      <p className="text-lg text-text mb-8 font-medium">
-        Be the first to experience the future of AI-powered dermatology. Sign up for early access.
+      <p className="text-lg text-text mb-2 font-medium text-left">
+        Be the first to experience the future of AI-powered dermatology.
+      </p>
+      <p className="text-lg text-text mb-8 font-medium text-center">
+        Sign up for early access.
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -89,7 +92,7 @@ export default function WaitlistForm() {
           disabled={status === 'loading'}
           className="w-full md:w-auto px-8 py-3 bg-primary text-white font-bold rounded-md hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 transition-all duration-300"
         >
-          {status === 'loading' ? 'Joining...' : 'Join the Party 🎀'}
+          {status === 'loading' ? 'Joining...' : 'Join the DermaIQ! 🎉'}
         </button>
       </form>
       {message && (

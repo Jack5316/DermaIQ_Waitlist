@@ -8,7 +8,7 @@ const Founders = () => {
         <div className="grid grid-cols-1 gap-8 max-w-2xl mx-auto">
           {/* Catherine */}
           <div className="bg-white rounded-lg shadow-md p-6 border border-pink-200 hover:shadow-lg transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-primary">Catherine</h3>
+            <h3 className="text-xl font-semibold mb-2 text-primary">Catherine Liang</h3>
             <div className="space-y-2 text-text">
               <p>KCL BSc(Hons) Pharmacology & Molecular Genetics</p>
               <p>UCL MSc Cell and Gene Therapy</p>
@@ -23,7 +23,7 @@ const Founders = () => {
 
           {/* Jack */}
           <div className="bg-white rounded-lg shadow-md p-6 border border-pink-200 hover:shadow-lg transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-primary">Jack</h3>
+            <h3 className="text-xl font-semibold mb-2 text-primary">Jack Tan</h3>
             <div className="space-y-2 text-text">
               <p>UCL MSc Computer Science</p>
               <p>University of Liverpool BEng Electrical and Electronic Engineering</p>
