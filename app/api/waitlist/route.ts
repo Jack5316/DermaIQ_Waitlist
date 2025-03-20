@@ -62,7 +62,10 @@ export async function POST(request: Request) {
       message: error.message,
       code: error.code,
       meta: error.meta,
-      stack: error.stack
+      stack: error.stack,
+      prismaConnected: Boolean(prisma && prisma.$connect),
+      databaseUrl: process.env.DATABASE_URL ? 'URL exists (length: ' + process.env.DATABASE_URL.length + ')' : 'URL missing',
+      nodeEnv: process.env.NODE_ENV
     })
 
     return NextResponse.json(
