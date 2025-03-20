@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { sendWaitlistConfirmation } from '@/lib/email'
 
 export async function POST(request: Request) {
   try {
@@ -44,6 +45,15 @@ export async function POST(request: Request) {
       },
     })
     console.log('Successfully created waitlist entry:', waitlistEntry)
+
+    // Send confirmation email
+    try {
+      const emailSent = await sendWaitlistConfirmation(email, ageGroup)
+      console.log('Confirmation email sent:', emailSent)
+    } catch (emailError) {
+      // Don't fail the request if email sending fails, just log the error
+      console.error('Error sending confirmation email:', emailError)
+    }
 
     return NextResponse.json(waitlistEntry)
   } catch (error: any) {

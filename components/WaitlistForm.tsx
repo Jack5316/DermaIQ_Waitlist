@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback, useRef } from 'react'
+import ReactConfetti from 'react-confetti'
 
 const AGE_GROUPS = [
   { value: 'UNDER_18', label: '18 and under' },
@@ -16,6 +17,8 @@ export default function WaitlistForm() {
   const [ageGroup, setAgeGroup] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const [showConfetti, setShowConfetti] = useState(false)
+  const successMessageRef = useRef<HTMLParagraphElement>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -45,7 +48,7 @@ export default function WaitlistForm() {
       }
 
       setStatus('success')
-      setMessage('Thank you for joining our waitlist! We\'ll keep you updated.')
+      setMessage('Thank you for joining our waitlist! We\'ve sent a confirmation email to your inbox. We\'ll keep you updated.')
       setEmail('')
       setAgeGroup('')
     } catch (error: any) {
@@ -57,6 +60,7 @@ export default function WaitlistForm() {
 
   return (
     <div className="max-w-2xl mx-auto text-center bg-pink-50 p-8 rounded-lg shadow-md">
+      {showConfetti && <ReactConfetti recycle={false} numberOfPieces={200} />}
       <h2 className="text-4xl font-bold text-heading mb-4">
         Join DermaIQ! ✨
       </h2>
@@ -101,7 +105,12 @@ export default function WaitlistForm() {
         </button>
       </form>
       {message && (
-        <p className={`mt-4 font-medium ${status === 'success' ? 'text-green-600' : 'text-accent'}`}>
+        <p 
+          ref={successMessageRef}
+          className={`mt-4 font-medium ${status === 'success' ? 'text-green-600' : 'text-accent'} cursor-pointer`}
+          onMouseEnter={() => status === 'success' && setShowConfetti(true)}
+          onMouseLeave={() => setShowConfetti(false)}
+        >
           {message}
         </p>
       )}
