@@ -49,7 +49,7 @@ export default function WaitlistForm() {
       }
 
       setStatus('success')
-      setMessage('Thank you for joining our waitlist! We\'ve sent a confirmation email to your inbox. We\'ll keep you updated.')
+      setMessage('Thank you for joining our waitlist! We\'ll keep you updated.')
       setEmail('')
       setAgeGroup('')
     } catch (error: any) {
@@ -66,7 +66,7 @@ export default function WaitlistForm() {
         Join DermaIQ! ✨
       </h2>
       <p className="text-lg text-text mb-2 font-medium text-center">
-        Be the first to experience the future of AI-powered dermatology.
+        Be the first to experience the future of AI-powered skin care.
       </p>
       <p className="text-lg text-text mb-8 font-medium text-center">
         Sign up for early access.

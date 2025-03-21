@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { sendWaitlistConfirmation } from '@/lib/email'
+import { sendWaitlistConfirmation } from '@/utils/email'
 
 export async function POST(request: Request) {
   try {
