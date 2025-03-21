@@ -1,7 +1,6 @@
 import Header from '@/components/Header'
 import WaitlistForm from '@/components/WaitlistForm'
 import Testimonials from '@/components/Testimonials'
-import Footer from '@/components/Footer'
 import ClientHydrationFixWrapper from '@/components/ClientHydrationFixWrapper'
 import Founders from '@/components/Founders'
 
@@ -16,7 +15,6 @@ export default function Home() {
           <Founders />
           <Testimonials />
         </div>
-        <Footer />
       </main>
     </ClientHydrationFixWrapper>
   )

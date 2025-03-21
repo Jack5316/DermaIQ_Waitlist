@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from 'react'
 import ReactConfetti from 'react-confetti'
+import Image from 'next/image'
 
 const AGE_GROUPS = [
   { value: 'UNDER_18', label: '18 and under' },
